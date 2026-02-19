@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagram – Design tools from the future.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            bg:           '#0a0a0f',
+            'card-bg':    'rgba(255,255,255,0.03)',
+            'card-border':'rgba(255,255,255,0.08)',
+            muted:        '#bdbdc0',
+            dim:          '#888893',
+            accent:       '#7c4dff',
+          },
+          backgroundImage: {
+            'page-glow':
+              'radial-gradient(ellipse 80% 60% at 50% -10%, rgba(124,77,255,0.18), transparent),' +
+              'radial-gradient(circle at 20% 85%, rgba(100,60,200,0.07), transparent)',
+            'hero-title':
+              'linear-gradient(136deg, #fff 65%, rgba(255,255,255,0.43) 100%)',
+            'cta-pill':
+              'linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 100%)',
+          },
+          boxShadow: {
+            'card-glow': '0 0 80px 0 rgba(124,77,255,0.12)',
+          },
+        }
+      }
+    }
+  </script>
+</head>
+
+<!-- ============================================================
+     Page body – dark galaxy background
+     ============================================================ -->
+<body class="min-h-screen bg-bg text-white font-sans antialiased bg-page-glow bg-no-repeat">
+
+  <!-- ============================================================
+       Fixed Navigation (Figma: div.nav)
+       ============================================================ -->
+  <header id="site-header" class="fixed top-0 inset-x-0 z-50 bg-bg/80 backdrop-blur-md border-b border-white/[0.07] h-[72px] flex items-center">
+    <div class="max-w-[1440px] mx-auto w-full flex items-center justify-between px-10 py-2">
+
+      <!-- Logo link -->
+      <a href="#" class="flex items-center no-underline shrink-0">
+        <img src="assets/icons/6408c50680c7dae0a89901a1_logo.svg.svg"
+             alt="Diagram" class="h-6 w-auto object-contain">
+      </a>
+
+      <!-- Center nav: Magician, Genius, Automator, UI-AI -->
+      <nav class="hidden md:flex items-center gap-0">
+        <a href="#magician"  class="nav-link px-4 py-3 rounded-lg text-dim hover:text-white text-sm transition" data-section="magician">Magician</a>
+        <a href="#genius"    class="nav-link px-4 py-3 rounded-lg text-dim hover:text-white text-sm transition" data-section="genius">Genius</a>
+        <a href="#automator" class="nav-link px-4 py-3 rounded-lg text-dim hover:text-white text-sm transition" data-section="automator">Automator</a>
+        <a href="#ui-ai"     class="nav-link px-4 py-3 rounded-lg text-dim hover:text-white text-sm transition" data-section="ui-ai">UI-AI</a>
+    </nav>
+
+      <!-- Login -->
+      <a href="#" class="px-4 py-2 rounded-lg text-sm font-medium text-dim hover:text-white transition no-underline">Login</a>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- ============================================================
+         HERO SECTION – solar system + headline
+         ============================================================ -->
+    <section id="hero" class="relative overflow-hidden pt-24 pb-0 min-h-[100vh]">
+
+      <!-- Galaxy background image -->
+      <div class="absolute inset-0 z-0 pointer-events-none">
+        <img src="assets/images/div.galaxy-background.png"
+             alt="" class="w-full h-full object-cover opacity-60 select-none">
+      </div>
+
+      <!-- Headline block – centered above solar system -->
+      <div class="relative z-10 max-w-[600px] mx-auto text-center pt-16 pb-0 px-4">
+        <h1 class="text-[68px] sm:text-[75px] font-bold leading-[1.15] tracking-[-0.02em] mb-5
+                   bg-hero-title bg-clip-text text-transparent">
+          Design tools<br>from the future.
+      </h1>
+        <p class="text-muted text-[18px] sm:text-[20px] leading-[1.65] font-medium mb-10">
+          Unleash your creativity with Diagram's<br>AI-powered design tools.
+        </p>
+
+        <!-- Primary CTA button -->
+        <a href="#magician"
+           class="inline-flex items-center gap-3 px-5 py-3 rounded-full
+                  border border-white/[0.12] bg-cta-pill
+                  text-white text-sm font-semibold hover:bg-white/10 transition no-underline">
+          <img src="assets/icons/6408c50680c7dae0a89901a1_logo.svg.svg"
+               alt="" class="w-5 h-5 object-contain">
+          Explore the future
+        </a>
+      </div>
+
+      <!-- Solar system – concentric orbit rings + planets -->
+      <div class="relative z-10 mt-8 w-full max-w-[1200px] mx-auto h-[980px] select-none pointer-events-none">
+
+        <!-- Orbit ring container – centered at 50% / 490px -->
+        <div class="absolute left-1/2 -translate-x-1/2 top-0 w-[1200px]" style="height:980px">
+
+          <!-- Orbit 01 – innermost (266×266) centred at 600,490 -->
+          <img src="assets/icons/6408d31fe77edc25e03ef3ee_orbit-01.svg.svg"
+               alt="" class="absolute opacity-70"
+               style="width:266px;height:266px;left:467px;top:357px">
+
+          <!-- Orbit 02 -->
+          <img src="assets/icons/6408d3e0d8cc0c3841f4610c_orbit-02.svg.svg"
+               alt="" class="absolute opacity-70"
+               style="width:366px;height:366px;left:417px;top:307px">
+          <!-- Planet – blue (orbit 02) -->
+          <img src="assets/images/646d310acab0c39a1ada8b70_planet-blue-p-500.png.png"
+               alt="" class="absolute w-[42px] h-[42px] object-contain"
+               style="left:527px;top:322px;transform:rotate(100deg)">
+
+          <!-- Orbit 03 -->
+          <img src="assets/icons/6408d3e07780a743800ce785_orbit-03.svg.svg"
+               alt="" class="absolute opacity-60"
+               style="width:500px;height:500px;left:350px;top:240px">
+          <!-- Planet – automator (orbit 03) -->
+          <img src="assets/images/646d305e953a93852d6679ff_planet-automator-p-500.png.png"
+               alt="" class="absolute w-[44px] h-[44px] object-contain"
+               style="left:790px;top:226px;transform:rotate(81deg)">
+          <img src="assets/images/646d305da8fee2ce65d7cf54_planet-automator-logo-p-500.png.png"
+               alt="" class="absolute w-[36px] h-[36px] object-contain rounded-full"
+               style="left:800px;top:324px">
+
+          <!-- Orbit 04 -->
+          <img src="assets/icons/6408d37b37c774cb70ce6165_orbit-04.svg.svg"
+               alt="" class="absolute opacity-55"
+               style="width:650px;height:650px;left:275px;top:165px">
+          <!-- Planet – genius (orbit 04) -->
+          <img src="assets/images/646d305e6cbb2ccb8c52332e_planet-genius-p-500.png.png"
+               alt="" class="absolute w-[56px] h-[56px] object-contain"
+               style="left:245px;top:490px;transform:rotate(38deg)">
+          <img src="assets/images/646d305d08572b42186fc612_planet-genius-logo-p-500.png.png"
+               alt="" class="absolute w-[48px] h-[48px] object-contain rounded-full"
+               style="left:256px;top:540px">
+
+          <!-- Orbit 05 -->
+          <img src="assets/icons/6408d37bde5aefd9e3e2fb40_orbit-05.svg.svg"
+               alt="" class="absolute opacity-50"
+               style="width:820px;height:820px;left:190px;top:80px">
+          <!-- Planet – magician (orbit 05) -->
+          <img src="assets/images/646d30baa8fee2ce65d82fdd_planet-magician-p-500.png.png"
+               alt="" class="absolute w-[60px] h-[60px] object-contain"
+               style="left:350px;top:96px;transform:rotate(52deg)">
+          <img src="assets/images/646d30b90419ec1e0612949d_planet-magician-logo-p-500.png.png"
+               alt="" class="absolute w-[52px] h-[52px] object-contain rounded-full"
+               style="left:355px;top:156px">
+
+          <!-- Orbit 06 -->
+          <img src="assets/icons/6408d37b68e95e20341ee180_orbit-06.svg.svg"
+               alt="" class="absolute opacity-45"
+               style="width:950px;height:950px;left:125px;top:15px">
+          <!-- Planet – UI-AI (orbit 06) -->
+          <img src="assets/images/646d305e4b9d3a54b9b39375_planet-UI-AI-p-500.png.png"
+               alt="" class="absolute w-[46px] h-[46px] object-contain"
+               style="left:904px;top:5px;transform:rotate(72deg)">
+          <img src="assets/images/646d305ddfcffe0100794e7d_planet-UI-AI-logo-p-500.png.png"
+               alt="" class="absolute w-[40px] h-[40px] object-contain rounded-full"
+               style="left:910px;top:90px">
+
+          <!-- Orbit 07 -->
+          <img src="assets/icons/6408d37b8ca9162921f45f1d_orbit-07.svg.svg"
+               alt="" class="absolute opacity-35"
+               style="width:1060px;height:1060px;left:70px;top:-40px">
+          <!-- Planet – brown/ringed (orbit 07) -->
+          <img src="assets/images/646d31602b6dd6ab9e6bb84e_planet-brown-p-500.png.png"
+               alt="" class="absolute w-[38px] h-[38px] object-contain"
+               style="left:298px;top:60px;transform:rotate(44deg)">
+          <img src="assets/images/646d305e55cd2ce9f378af65_planet-brown-ring-p-500.png.png"
+               alt="" class="absolute w-[50px] h-[22px] object-contain"
+               style="left:288px;top:120px;transform:rotate(-54deg)">
+
+          <!-- Orbit 08 – outermost (1200×1200) -->
+          <img src="assets/icons/6408d37be058903e15faca2e_orbit-08.svg.svg"
+               alt="" class="absolute opacity-25"
+               style="width:1200px;height:1200px;left:0;top:-110px">
+          <!-- Planet – green (orbit 08) -->
+          <img src="assets/images/646d305f6cbb2ccb8c52339d_planet-green-p-500.png.png"
+               alt="" class="absolute w-[33px] h-[33px] object-contain"
+               style="left:220px;top:28px;transform:rotate(77deg)">
+          <!-- Planet – red (orbit 01) -->
+          <img src="assets/images/646d305f55cd2ce9f378b05d_planet-red-p-500.png.png"
+               alt="" class="absolute w-[27px] h-[27px] object-contain"
+               style="left:465px;top:490px">
+
+          <!-- Central logo circle -->
+          <div class="absolute flex items-center justify-center rounded-full overflow-hidden shadow-lg"
+               style="width:190px;height:190px;left:505px;top:395px;
+                      background:linear-gradient(180deg,#ffffff 0%,#cfcfcf 100%)">
+            <img src="assets/images/646b893ad64ee4be28da3006_d-cutout%201-p-500.png.png"
+                 alt="Diagram" class="w-[72px] h-[140px] object-contain">
+          </div>
+
+        </div>
+      </div>
+
+    </section><!-- /hero -->
+
+
+    <!-- ============================================================
+         MAGICIAN SECTION – 4-col bento grid
+         ============================================================ -->
+    <section id="magician" class="scroll-mt-20 py-24 px-4 sm:px-6">
+      <div class="max-w-[1200px] mx-auto">
+
+        <!-- Section intro (Figma: magician has wand in hero; section uses icon + title) -->
+        <header class="text-center mb-16">
+          <div class="inline-flex items-center justify-center gap-4 mb-4">
+           
+            <h2 class="text-[56px] font-bold leading-tight tracking-tight
+                       bg-hero-title bg-clip-text text-transparent">
+              Magician
+            </h2>
+          </div>
+          <p class="text-muted text-lg mb-6">Cast a spell on your Figma designs.</p>
+          <a href="https://magician.design" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/[0.1]
+                    bg-white/[0.05] text-white text-sm font-semibold hover:bg-white/10 transition no-underline">
+            <img src="assets/icons/64092187ef5f2a2bda3abc21_magician-icon.svg.svg"
+                 alt="" class="w-5 h-5 object-contain">
+            magician.design
+          </a>
+        </header>
+
+        <!-- Bento grid: 4 equal columns -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
+
+          <!-- Row 1 ——————————————————————————————————————————————— -->
+
+          <!-- Card 1 (col-span-1): Design with AI magic -->
+          <article class="lg:col-span-1 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 overflow-hidden relative
+                          hover:bg-white/[0.05] hover:border-white/[0.14] transition-all duration-300 min-h-[400px] flex flex-col">
+            <div class="mb-auto">
+              <h3 class="font-semibold text-base mb-2">Design with AI magic</h3>
+              <p class="text-dim text-sm leading-relaxed">
+                Unlock your creativity and bring ideas to life with AI-powered design utilities.
+              </p>
+            </div>
+            <!-- Sparkle visual -->
+            <div class="mt-6 flex-1 relative flex items-end justify-center">
+              <div class="relative">
+                <img src="assets/icons/64092187ef5f2a2bda3abc21_magician-icon.svg.svg"
+                alt="" class="w-14 h-14 object-contain shrink-0">
+                <img src="assets/images/Magician.png"
+                alt="" class="w-20 h-20 object-contain">  
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 (col-span-2): Generate SVG icons for anything -->
+          <article class="lg:col-span-2 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 overflow-hidden relative
+                          hover:bg-white/[0.05] hover:border-white/[0.14] transition-all duration-300 min-h-[400px] flex flex-col">
+            <div class="mb-auto">
+              <h3 class="font-semibold text-base mb-2">Generate SVG icons for anything</h3>
+              <p class="text-dim text-sm leading-relaxed">
+                Magic Icon generates infinitely scalable SVG icons to use anywhere in your design.
+              </p>
+            </div>
+            <!-- Icon grid preview -->
+            <div class="mt-6 flex-1 relative overflow-hidden rounded-xl bg-white/[0.04] flex items-center justify-center p-4">
+              <div class="grid grid-cols-7 gap-2">
+                <div class="w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center">
+                  <img src="assets/icons/641216ad6d492c4a2abc7cef_%E2%9C%A8%20ufo.svg.svg" alt="" class="w-6 h-6 object-contain">
+                </div>
+                <div class="w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center">
+                  <img src="assets/icons/6445395bb850974eed13ecfa_alien-icon.svg.svg" alt="" class="w-6 h-6 object-contain">
+                </div>
+                <div class="w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center">
+                  <img src="assets/icons/6445395be1685dd88906fc96_planet-icon.svg.svg" alt="" class="w-6 h-6 object-contain">
+                </div>
+                <div class="w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center">
+                  <img src="assets/icons/6446db6058d2849d51f2e3c8_rocket.svg.svg" alt="" class="w-6 h-6 object-contain">
+                </div>
+                <div class="w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center">
+                  <img src="assets/icons/6445395b61fa11637dcae88c_ufo1-icon.svg.svg" alt="" class="w-6 h-6 object-contain">
+                </div>
+                <div class="w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center">
+                  <img src="assets/icons/6421f254ecc951778422a882_planet-gray.svg.svg" alt="" class="w-6 h-6 object-contain">
+                </div>
+                <div class="w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center">
+                  <img src="assets/icons/6410e00fbfe8ed7a011640d8_planet-blue.svg.svg" alt="" class="w-6 h-6 object-contain">
+                </div>
+                <!-- Row 2 -->
+                <div class="w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center">
+                  <img src="assets/icons/641216ad6d492c4a2abc7cef_%E2%9C%A8%20ufo.svg.svg" alt="" class="w-6 h-6 object-contain opacity-60">
+                </div>
+                <div class="w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center">
+                  <img src="assets/icons/6445395bb850974eed13ecfa_alien-icon.svg.svg" alt="" class="w-6 h-6 object-contain opacity-60">
+                </div>
+                <div class="w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center">
+                  <img src="assets/icons/6445395be1685dd88906fc96_planet-icon.svg.svg" alt="" class="w-6 h-6 object-contain opacity-60">
+                </div>
+                <div class="w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center">
+                  <img src="assets/icons/6446db6058d2849d51f2e3c8_rocket.svg.svg" alt="" class="w-6 h-6 object-contain opacity-60">
+                </div>
+                <div class="w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center">
+                  <img src="assets/icons/64092187ef5f2a2bda3abc21_magician-icon.svg.svg" alt="" class="w-6 h-6 object-contain opacity-60">
+                </div>
+                <div class="w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center">
+                  <img src="assets/icons/6411468123a773394d67788a_%F4%80%AB%B8.svg.svg" alt="" class="w-6 h-6 object-contain opacity-60">
+                </div>
+                <div class="w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center">
+                  <img src="assets/icons/645aea301b508a4dc74f87e4_image.svg.svg" alt="" class="w-6 h-6 object-contain opacity-60">
+                </div>
+                <!-- Row 3 – dimmer -->
+                <div class="w-10 h-10 rounded-xl bg-white/[0.03] flex items-center justify-center opacity-30">
+                  <img src="assets/icons/6421f254ecc951778422a882_planet-gray.svg.svg" alt="" class="w-6 h-6 object-contain">
+                </div>
+                <div class="w-10 h-10 rounded-xl bg-white/[0.03] opacity-30"></div>
+                <div class="w-10 h-10 rounded-xl bg-white/[0.03] opacity-30"></div>
+                <div class="w-10 h-10 rounded-xl bg-white/[0.03] opacity-30"></div>
+                <div class="w-10 h-10 rounded-xl bg-white/[0.03] opacity-30"></div>
+                <div class="w-10 h-10 rounded-xl bg-white/[0.03] opacity-30"></div>
+                <div class="w-10 h-10 rounded-xl bg-white/[0.03] opacity-30"></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 (col-span-1): Conjure up creativity -->
+          <article class="lg:col-span-1 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 overflow-hidden relative
+                          hover:bg-white/[0.05] hover:border-white/[0.14] transition-all duration-300 min-h-[400px] flex flex-col">
+            <div class="mb-auto">
+              <h3 class="font-semibold text-base mb-2">Conjure up creativity</h3>
+              <p class="text-dim text-sm leading-relaxed">
+                Magician demystifies the creative process by magically turning your ideas into assets.
+              </p>
+            </div>
+            <div class="mt-6 flex-1 relative flex items-center justify-center">
+              <div class="w-[120px] h-[120px] rounded-2xl border border-white/[0.12] bg-white/[0.06]
+                          flex items-center justify-center shadow-inner overflow-hidden">
+                <img src="assets/icons/64123c0fe6400449a82646ea_magic-image-icon.svg.svg"
+                     alt="" class="w-14 h-14 object-contain">
+              </div>
+              <div class="absolute -bottom-2 -left-2 w-[52px] h-[52px] rounded-xl border border-white/[0.1]
+                          bg-white/[0.06] flex items-center justify-center">
+                <img src="assets/icons/6411468123a773394d67788a_%F4%80%AB%B8.svg.svg"
+                     alt="" class="w-7 h-7 object-contain">
+              </div>
+            </div>
+          </article>
+
+          <!-- Row 2 ——————————————————————————————————————————————— -->
+
+          <!-- Card 4 (col-span-2): Generate magical visuals -->
+          <article class="lg:col-span-2 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 overflow-hidden relative
+                          hover:bg-white/[0.05] hover:border-white/[0.14] transition-all duration-300 min-h-[400px] flex flex-col">
+            <div class="mb-auto">
+              <h3 class="font-semibold text-base mb-2">Generate magical visuals for your designs</h3>
+              <p class="text-dim text-sm leading-relaxed">
+                With Magic Image, you can quickly generate images in Figma while you design.
+              </p>
+            </div>
+            <div class="mt-6 flex-1 relative overflow-hidden rounded-xl">
+              <!-- Stacked image cards mockup -->
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="relative w-full h-full">
+                  <div class="absolute left-[8%] top-[10%] w-[38%] aspect-square rounded-2xl border border-white/[0.1]
+                              bg-white/[0.06] shadow-lg overflow-hidden">
+                    <img src="assets/images/div.magic-image-img-1.png" alt="" class="w-full h-full object-cover opacity-80">
+                  </div>
+                  <div class="absolute left-[30%] top-[22%] w-[36%] aspect-square rounded-2xl border border-white/[0.12]
+                              bg-white/[0.07] shadow-xl overflow-hidden">
+                    <img src="assets/icons/64123c0fe6400449a82646ea_magic-image-icon.svg.svg" alt="" class="w-full h-full object-contain p-8">
+                  </div>
+                  <div class="absolute right-[6%] top-[8%] w-[34%] aspect-square rounded-2xl border border-white/[0.08]
+                              bg-white/[0.04] shadow-md overflow-hidden">
+                    <img src="assets/icons/64123c0fe6400449a82646ea_magic-image-icon.svg-1.svg" alt="" class="w-full h-full object-contain p-8 opacity-70">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5 (col-span-2): Wave goodbye to Lorem Ipsum -->
+          <article class="lg:col-span-2 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 overflow-hidden relative
+                          hover:bg-white/[0.05] hover:border-white/[0.14] transition-all duration-300 min-h-[400px] flex flex-col">
+            <div class="mb-auto">
+              <h3 class="font-semibold text-base mb-2">Wave goodbye to Lorem Ipsum</h3>
+              <p class="text-dim text-sm leading-relaxed">
+                Magic Copy writes, edits, and rewrites Figma text layers so you can design with real copy.
+              </p>
+            </div>
+            <div class="mt-6 flex-1 relative overflow-hidden rounded-xl bg-white/[0.04] p-4">
+              <!-- Lorem ipsum text mockup with stars -->
+              <p class="text-white/40 text-xs leading-relaxed font-mono">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...
+              </p>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <img src="assets/images/div.gen-button-stars-div.png"
+                     alt="" class="w-full h-full object-contain opacity-50 pointer-events-none">
+              </div>
+            </div>
+          </article>
+
+          <!-- Row 3 ——————————————————————————————————————————————— -->
+
+          <!-- Card 6 (col-span-1): Your AI spellbook -->
+          <article class="lg:col-span-1 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 overflow-hidden relative
+                          hover:bg-white/[0.05] hover:border-white/[0.14] transition-all duration-300 min-h-[400px] flex flex-col">
+            <div class="mb-auto">
+              <h3 class="font-semibold text-base mb-2">Your AI spellbook</h3>
+              <p class="text-dim text-sm leading-relaxed">
+                Get all the latest AI design advancements + future spells in one convenient plugin.
+              </p>
+            </div>
+            <div class="mt-6 flex-1 relative flex items-end justify-center pb-2">
+              <div class="relative w-[120px]">
+                <img src="assets/images/div.cover.png" alt="Spellbook"
+                     class="w-full rounded-lg shadow-2xl">
+                <img src="assets/images/641144e24ccea2059b4bf327_The%20Magical%20Designer%20Spellbook.png.png"
+                     alt="" class="absolute inset-0 w-full h-full object-contain rounded-lg opacity-80">
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 7 (col-span-2): Magically rename your layers -->
+          <article class="lg:col-span-2 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 overflow-hidden relative
+                          hover:bg-white/[0.05] hover:border-white/[0.14] transition-all duration-300 min-h-[400px] flex flex-col">
+            <div class="mb-auto">
+              <h3 class="font-semibold text-base mb-2">Magically rename your layers</h3>
+              <p class="text-dim text-sm leading-relaxed">
+                Magic Rename intelligently names your layers so you can spend more time designing.
+              </p>
+            </div>
+            <!-- Figma layer-tree mockup -->
+            <div class="mt-6 flex-1 relative overflow-hidden rounded-xl border border-white/[0.06] bg-[#111118]">
+              <img src="assets/images/div.genius-figma-grain-2.png" alt=""
+                   class="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none">
+              <div class="flex h-full">
+                <!-- Left: layer list -->
+                <div class="w-[52%] border-r border-white/[0.06] p-3 flex flex-col gap-1 text-xs">
+                  <div class="px-2 py-1.5 rounded-md bg-white/[0.06] text-white/70 flex items-center gap-2">
+                    <span class="text-white/30">▼</span> Frame 2147223044
+                  </div>
+                  <div class="px-2 py-1.5 pl-5 rounded-md text-white/40 flex items-center gap-2 hover:bg-white/[0.04]">
+                    <span class="text-white/20">▼</span> Frame 2147223043
+                  </div>
+                  <div class="px-2 py-1.5 pl-5 rounded-md text-white/40 flex items-center gap-2 hover:bg-white/[0.04]">
+                    <span class="text-white/20">▼</span> Frame 2147223035
+                  </div>
+                  <div class="px-2 py-1.5 rounded-md text-white/40 flex items-center gap-2 hover:bg-white/[0.04]">
+                    <span class="text-white/30">▼</span> Frame 2147223040
+                  </div>
+                </div>
+                <!-- Right: canvas preview -->
+                <div class="w-[48%] p-3 flex items-center justify-center">
+                  <div class="w-full h-[80%] rounded-lg border border-white/[0.08] bg-white/[0.04] flex flex-col gap-2 p-2">
+                    <div class="h-2 w-3/4 rounded bg-white/[0.12]"></div>
+                    <div class="h-2 w-1/2 rounded bg-white/[0.08]"></div>
+                    <div class="h-6 w-full rounded bg-white/[0.06] mt-1"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 8 (col-span-1): Figma's new AI bestie -->
+          <article class="lg:col-span-1 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 overflow-hidden relative
+                          hover:bg-white/[0.05] hover:border-white/[0.14] transition-all duration-300 min-h-[400px] flex flex-col">
+            <div class="mb-auto">
+              <h3 class="font-semibold text-base mb-2">Figma's new AI bestie</h3>
+              <p class="text-dim text-sm leading-relaxed">
+                Magician works right inside your favorite design tool.
+              </p>
+            </div>
+            <div class="mt-6 flex-1 relative flex items-center justify-center">
+              <!-- Figma logo mosaic -->
+              <div class="grid grid-cols-2 gap-1 w-[100px]">
+                <div class="w-11 h-11 rounded-lg bg-[#1abcfe]/20 flex items-center justify-center">
+                  <div class="w-5 h-5 rounded-full bg-[#1abcfe]/60"></div>
+                </div>
+                <div class="w-11 h-11 rounded-lg bg-[#ff7262]/20 flex items-center justify-center">
+                  <div class="w-5 h-5 rounded-full bg-[#ff7262]/60"></div>
+                </div>
+                <div class="w-11 h-11 rounded-lg bg-[#a259ff]/20 flex items-center justify-center">
+                  <div class="w-5 h-5 rounded-full bg-[#a259ff]/60"></div>
+                </div>
+                <div class="w-11 h-11 rounded-lg bg-[#0acf83]/20 flex items-center justify-center">
+                  <div class="w-5 h-5 rounded-full bg-[#0acf83]/60"></div>
+                </div>
+                <div class="col-span-2 w-11 h-11 mx-auto rounded-lg bg-[#f24e1e]/20 flex items-center justify-center">
+                  <div class="w-5 h-5 rounded-full bg-[#f24e1e]/60"></div>
+                </div>
+              </div>
+              <!-- Sparkle overlay -->
+              <img src="assets/images/6418f446183d39c4a3d8c69f_%F4%80%AB%B8-p-500.png.png"
+                   alt="" class="absolute right-4 bottom-4 w-12 h-12 object-contain opacity-80">
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section><!-- /magician -->
+
+
+    <!-- ============================================================
+         GENIUS SECTION – 4-col bento grid
+         ============================================================ -->
+    <section id="genius" class="scroll-mt-20 py-24 px-4 sm:px-6">
+      <div class="max-w-[1200px] mx-auto">
+
+        <!-- Section intro: all items centered (logo, title, subtitle, button, Coming soon) -->
+        <header class="mb-16 text-center">
+          <!-- Orbital / logo at top -->
+          <div class="flex justify-center mb-6">
+            <div class="relative w-[200px] h-[200px] md:w-[260px] md:h-[260px]">
+              <div class="absolute inset-0 rounded-full bg-white/[0.04] blur-2xl scale-150" aria-hidden="true"></div>
+              <div class="relative w-full h-full flex items-center justify-center">
+                <img src="assets/icons/6408d31fe77edc25e03ef3ee_orbit-01.svg.svg" alt="" class="absolute w-full h-full opacity-40 object-contain">
+                <img src="assets/icons/6408d3e0d8cc0c3841f4610c_orbit-02.svg.svg" alt="" class="absolute w-[85%] h-[85%] opacity-30 object-contain">
+                <img src="assets/icons/641cc2f93287d140e901334d_genius-icon.svg.svg" alt="" class="relative w-20 h-20 md:w-28 md:h-28 object-contain z-10">
+              </div>
+            </div>
+          </div>
+          <h2 class="text-[48px] md:text-[56px] font-bold leading-tight tracking-tight mb-3
+                     bg-hero-title bg-clip-text text-transparent">
+            Genius
+          </h2>
+          <p class="text-muted text-lg mb-6">Your AI design companion in Figma.</p>
+          <div class="flex flex-wrap items-center justify-center gap-3">
+            <a href="https://genius.design" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/[0.1]
+                      bg-white/[0.05] text-white text-sm font-semibold hover:bg-white/10 transition no-underline">
+              <img src="assets/icons/640921b8083a0443cf83c611_genius-icon.svg.svg"
+                   alt="" class="w-5 h-5 object-contain">
+              genius.design
+            </a>
+            <span class="px-3 py-1 rounded-full border border-white/[0.08] bg-white/[0.04]
+                         text-dim text-xs font-medium">Coming soon</span>
+          </div>
+        </header>
+
+        <!-- Bento grid: 4 columns -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
+
+          <!-- Row 1 ——————————————————————————————————————————————— -->
+
+          <!-- Card 1 (col-span-2): Transforms your ideas into designs -->
+          <article class="lg:col-span-2 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 overflow-hidden relative
+                          hover:bg-white/[0.05] hover:border-white/[0.14] transition-all duration-300 min-h-[400px] flex flex-col">
+            <div class="mb-auto">
+              <h3 class="font-semibold text-base mb-2">Transforms your ideas into designs</h3>
+              <p class="text-dim text-sm leading-relaxed">
+                Genius creates fully-editable UI designs with just a simple product description.
+              </p>
+            </div>
+            <!-- Text-to-design input mockup -->
+            <div class="mt-6 flex-1 relative overflow-hidden rounded-xl">
+              <!-- Orbit rings decoration -->
+              <div class="absolute inset-0 flex items-center justify-center overflow-hidden">
+                <img src="assets/icons/6408d37bde5aefd9e3e2fb40_orbit-05.svg.svg"
+                     alt="" class="absolute w-[500px] h-[500px] opacity-10 -translate-y-8">
+                <img src="assets/icons/6408d37b37c774cb70ce6165_orbit-04.svg.svg"
+                     alt="" class="absolute w-[380px] h-[380px] opacity-15 -translate-y-8">
+                <img src="assets/icons/6408d3e07780a743800ce785_orbit-03.svg.svg"
+                     alt="" class="absolute w-[260px] h-[260px] opacity-20 -translate-y-8">
+              </div>
+              <!-- Input bar -->
+              <div class="absolute bottom-4 left-4 right-4 flex items-center gap-3
+                          rounded-xl border border-white/[0.12] bg-[#111118]/90 px-4 py-3">
+                <img src="assets/icons/641cc2f93287d140e901334d_genius-icon.svg.svg"
+                     alt="" class="w-5 h-5 object-contain shrink-0">
+                <span class="text-white/50 text-sm flex-1">An app to book intergalactic travel</span>
+                <button class="px-3 py-1 rounded-lg text-xs font-semibold text-white
+                               bg-white/[0.12] hover:bg-white/20 transition relative overflow-hidden">
+                  <img src="assets/images/div.gen-button-stars-div.png"
+                       alt="" class="absolute inset-0 w-full h-full object-cover opacity-60 pointer-events-none">
+                  <span class="relative">Generate</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 (col-span-2): Auto-suggests as you design -->
+          <article class="lg:col-span-2 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 overflow-hidden relative
+                          hover:bg-white/[0.05] hover:border-white/[0.14] transition-all duration-300 min-h-[400px] flex flex-col">
+            <div class="mb-auto">
+              <h3 class="font-semibold text-base mb-2">Auto-suggests as you design</h3>
+              <p class="text-dim text-sm leading-relaxed">
+                Improve your workflow and design more efficiently with AI-powered in-line suggestions.
+              </p>
+            </div>
+            <!-- Food delivery app mockup -->
+            <div class="mt-6 flex-1 relative flex items-center justify-center overflow-hidden">
+              <div class="w-[180px] rounded-2xl border border-white/[0.1] bg-[#111118] overflow-hidden shadow-2xl">
+                <div class="h-7 bg-white/[0.06] flex items-center px-3 gap-1">
+                  <div class="w-12 h-2 rounded bg-white/30"></div>
+                </div>
+                <div class="p-2">
+                  <div class="flex items-center gap-2 px-2 py-1.5 rounded-lg bg-white/[0.06] mb-2">
+                    <div class="w-3 h-3 rounded-full bg-white/20"></div>
+                    <div class="w-20 h-2 rounded bg-white/20"></div>
+                  </div>
+                  <div class="flex gap-2 px-1 mb-2">
+                    <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-[8px]">Pizza</span>
+                    <span class="px-2 py-0.5 rounded-full bg-white/[0.06] text-white/40 text-[8px]">Salad</span>
+                    <span class="px-2 py-0.5 rounded-full bg-white/[0.06] text-white/40 text-[8px]">Chicken</span>
+                  </div>
+                  <!-- Food stars decoration -->
+                  <div class="relative h-[100px] flex items-center justify-center">
+                    <img src="assets/images/div.food-stars-div.png" alt="" class="w-full h-full object-contain opacity-70">
+                  </div>
+                </div>
+              </div>
+              <!-- Orbit rings aside -->
+              <div class="absolute -right-12 top-1/2 -translate-y-1/2 opacity-20">
+                <img src="assets/icons/6408d3e07780a743800ce785_orbit-03.svg.svg" alt="" class="w-40 h-40">
+              </div>
+            </div>
+          </article>
+
+          <!-- Row 2 ——————————————————————————————————————————————— -->
+
+          <!-- Card 3 (col-span-2): Iterates on designs -->
+          <article class="lg:col-span-2 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 overflow-hidden relative
+                          hover:bg-white/[0.05] hover:border-white/[0.14] transition-all duration-300 min-h-[400px] flex flex-col">
+            <div class="mb-auto">
+              <h3 class="font-semibold text-base mb-2">Iterates on designs to unlock new possibilities</h3>
+              <p class="text-dim text-sm leading-relaxed">
+                Genius iterates on your designs for you to explore new design directions during your process.
+              </p>
+            </div>
+            <div class="mt-6 flex-1 relative flex items-center justify-center overflow-hidden gap-4">
+              <!-- Before frame -->
+              <div class="w-[44%] h-[70%] min-h-[160px] rounded-xl border border-white/[0.06] bg-[#111118] p-3 flex flex-col gap-2">
+                <div class="flex items-center gap-2">
+                  <div class="w-16 h-3 rounded bg-white/20"></div>
+                  <div class="ml-auto w-5 h-5 rounded-full bg-white/10"></div>
+                </div>
+                <div class="flex gap-2 mt-1">
+                  <div class="w-12 h-12 rounded-lg bg-white/[0.08]"></div>
+                  <div class="flex flex-col gap-1 flex-1">
+                    <div class="h-2 w-full rounded bg-white/20"></div>
+                    <div class="h-2 w-3/4 rounded bg-white/10"></div>
+                    <div class="h-2 w-1/2 rounded bg-white/10"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Iterate button in middle -->
+              <div class="flex flex-col items-center gap-1 shrink-0">
+                <div class="relative">
+                  <img src="assets/images/div.iterate-button-orbit.png" alt=""
+                       class="absolute -inset-3 w-[88px] h-[56px] object-contain opacity-60">
+                  <button class="relative px-4 py-2 rounded-lg text-xs font-semibold text-white
+                                 bg-white/[0.1] border border-white/[0.12] overflow-hidden">
+                    <img src="assets/images/div.gen-button-stars-div.png" alt=""
+                         class="absolute inset-0 w-full h-full object-cover opacity-50 pointer-events-none">
+                    <span class="relative">Iterate</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- After frame (genius-coloured) -->
+              <div class="w-[44%] h-[70%] min-h-[160px] rounded-xl border border-white/[0.12]
+                          bg-[#111118] p-3 flex flex-col gap-2 ring-1 ring-purple-500/20">
+                <div class="flex items-center gap-2">
+                  <div class="w-16 h-3 rounded bg-purple-400/30"></div>
+                  <div class="ml-auto w-5 h-5 rounded-full bg-purple-400/20"></div>
+                </div>
+                <div class="flex gap-2 mt-1">
+                  <div class="w-12 h-12 rounded-lg bg-purple-500/10"></div>
+                  <div class="flex flex-col gap-1 flex-1">
+                    <div class="h-2 w-full rounded bg-purple-400/30"></div>
+                    <div class="h-2 w-3/4 rounded bg-purple-400/20"></div>
+                    <div class="h-2 w-1/2 rounded bg-purple-400/20"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4 (col-span-2): Leverages any design system -->
+          <article class="lg:col-span-2 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 overflow-hidden relative
+                          hover:bg-white/[0.05] hover:border-white/[0.14] transition-all duration-300 min-h-[400px] flex flex-col">
+            <div class="mb-auto">
+              <h3 class="font-semibold text-base mb-2">Leverages any design system</h3>
+              <p class="text-dim text-sm leading-relaxed">
+                Genius leverages any design system to provide smart recommendations.
+              </p>
+            </div>
+            <div class="mt-6 flex-1 relative overflow-hidden rounded-xl border border-white/[0.06] bg-[#111118]">
+              <img src="assets/images/div.ds-card-bg.png" alt=""
+                   class="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none">
+              <!-- DS controls mockup -->
+              <div class="p-4 flex flex-col gap-3">
+                <!-- Tabs -->
+                <div class="flex gap-1">
+                  <button class="px-3 py-1.5 rounded-lg bg-white/[0.12] text-white text-xs font-medium">Orb</button>
+                  <button class="px-3 py-1.5 rounded-lg bg-white/[0.04] text-white/40 text-xs">Gas</button>
+                  <button class="px-3 py-1.5 rounded-lg bg-white/[0.04] text-white/40 text-xs">Pod</button>
+                </div>
+                <!-- Card preview -->
+                <div class="rounded-xl border border-white/[0.08] bg-white/[0.04] p-3 flex gap-3 items-center">
+                  <div class="w-12 h-12 rounded-xl bg-white/[0.1] flex-shrink-0"></div>
+                  <div>
+                    <div class="text-white text-sm font-medium">Orb</div>
+                    <div class="text-white/40 text-xs">/ɔrb/ · a spherical body</div>
+                  </div>
+                </div>
+                <!-- Controls row -->
+                <div class="flex items-center gap-3">
+                  <img src="assets/icons/div.ds-toggle.svg" alt="" class="h-6 object-contain">
+                  <img src="assets/icons/div.ds-toggle-1.svg" alt="" class="h-6 object-contain">
+                  <div class="ml-auto flex gap-1">
+                    <button class="px-3 py-1 rounded-lg bg-white/[0.08] text-white text-xs">Launch</button>
+                    <button class="px-3 py-1 rounded-lg bg-white/[0.04] text-white/40 text-xs">Abort</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Row 3 ——————————————————————————————————————————————— -->
+
+          <!-- Card 5 (col-span-1): Powered by UI-AI -->
+          <article class="lg:col-span-1 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 overflow-hidden relative
+                          hover:bg-white/[0.05] hover:border-white/[0.14] transition-all duration-300 min-h-[400px] flex flex-col">
+            <div class="mb-auto">
+              <h3 class="font-semibold text-base mb-2">Powered by UI-AI</h3>
+              <p class="text-dim text-sm">An AI model for designers.</p>
+            </div>
+            <div class="mt-6 flex-1 relative flex items-center justify-center">
+              <!-- Concentric rings + metal icon -->
+              <div class="relative flex items-center justify-center">
+                <div class="absolute w-[220px] h-[220px] rounded-full border border-white/[0.06]"></div>
+                <div class="absolute w-[175px] h-[175px] rounded-full border border-white/[0.07]"></div>
+                <div class="absolute w-[130px] h-[130px] rounded-full border border-white/[0.09]"></div>
+                <div class="absolute w-[85px] h-[85px] rounded-full border border-white/[0.12]"></div>
+                <div class="w-[70px] h-[70px] rounded-2xl border border-white/[0.15]
+                            bg-white/[0.06] flex items-center justify-center overflow-hidden shadow-lg">
+                  <img src="assets/images/646527d28de0488c8bd0cd09_ui-ai-metal-icon-p-500.png.png"
+                       alt="" class="w-10 h-10 object-contain">
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 6 (col-span-1): Uses Smart Elements -->
+          <article class="lg:col-span-1 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 overflow-hidden relative
+                          hover:bg-white/[0.05] hover:border-white/[0.14] transition-all duration-300 min-h-[400px] flex flex-col">
+            <div class="mb-auto">
+              <h3 class="font-semibold text-base mb-2">Uses Smart Elements</h3>
+              <p class="text-dim text-sm leading-relaxed">
+                Set the structure, then describe the UI to have Genius design it.
+              </p>
+            </div>
+            <div class="mt-6 flex-1 flex flex-col gap-2">
+              <!-- Smart element prompts -->
+              <div class="rounded-xl border border-white/[0.08] bg-white/[0.04] px-3 py-3 flex items-center gap-2">
+                <img src="assets/images/643ee6eb7ed55717a29abfe2_genius-logo-p-500.png.png"
+                     alt="" class="w-4 h-4 object-contain rounded-sm shrink-0">
+                <span class="text-white/70 text-xs">Product filters</span>
+                <div class="ml-auto flex gap-0.5">
+                  <div class="w-1 h-1 rounded-full bg-white/30"></div>
+                  <div class="w-1 h-1 rounded-full bg-white/30"></div>
+                  <div class="w-1 h-1 rounded-full bg-white/30"></div>
+                </div>
+              </div>
+              <div class="rounded-xl border border-white/[0.06] bg-white/[0.02] px-3 py-3 flex items-center gap-2">
+                <img src="assets/images/643ee6eb7ed55717a29abfe2_genius-logo-p-500.png.png"
+                     alt="" class="w-4 h-4 object-contain rounded-sm shrink-0 opacity-60">
+                <span class="text-white/40 text-xs">iOS status bar</span>
+                <div class="ml-auto flex gap-0.5">
+                  <div class="w-1 h-1 rounded-full bg-white/20"></div>
+                  <div class="w-1 h-1 rounded-full bg-white/20"></div>
+                  <div class="w-1 h-1 rounded-full bg-white/20"></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 7 (col-span-1): Invite to any Figma file -->
+          <article class="lg:col-span-1 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 overflow-hidden relative
+                          hover:bg-white/[0.05] hover:border-white/[0.14] transition-all duration-300 min-h-[400px] flex flex-col">
+            <div class="mb-auto">
+              <h3 class="font-semibold text-base mb-2">Invite to any Figma file</h3>
+              <p class="text-dim text-sm leading-relaxed">
+                Invite Genius to any file to get a personal design assistant.
+              </p>
+            </div>
+            <div class="mt-6 flex-1 relative overflow-hidden rounded-xl border border-white/[0.06] bg-[#111118]">
+              <img src="assets/images/div.genius-figma-grain-2.png" alt=""
+                   class="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none">
+              <!-- Figma toolbar mockup -->
+              <div class="p-3 flex flex-col h-full">
+                <div class="h-8 bg-white/[0.04] rounded-lg mb-2 flex items-center px-3 gap-2">
+                  <div class="w-20 h-2 rounded bg-white/20"></div>
+                </div>
+                <div class="flex gap-2 mt-1">
+                  <!-- User avatars -->
+                  <div class="w-7 h-7 rounded-full bg-purple-500/30 ring-1 ring-purple-400/40 flex items-center justify-center text-[9px] text-purple-300">N</div>
+                  <div class="w-7 h-7 rounded-full bg-blue-500/30 ring-1 ring-blue-400/40 flex items-center justify-center text-[9px] text-blue-300">Y</div>
+                  <div class="ml-auto">
+                    <button class="px-2 py-1 rounded-lg bg-white/[0.08] text-white text-[9px] font-medium relative overflow-hidden">
+                      <img src="assets/images/div.share-button-stars-div.png" alt=""
+                           class="absolute inset-0 w-full h-full object-cover opacity-60 pointer-events-none">
+                      <span class="relative">Share</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 8 (col-span-1): Chat with Genius -->
+          <article class="lg:col-span-1 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 overflow-hidden relative
+                          hover:bg-white/[0.05] hover:border-white/[0.14] transition-all duration-300 min-h-[400px] flex flex-col">
+            <div class="mb-auto">
+              <h3 class="font-semibold text-base mb-2">Chat with Genius</h3>
+              <p class="text-dim text-sm leading-relaxed">
+                Genius can consult and act on any design-related questions.
+              </p>
+            </div>
+            <div class="mt-6 flex-1 relative flex flex-col justify-end overflow-hidden">
+              <!-- Orbit rings decoration -->
+              <div class="absolute inset-0 flex items-center justify-center">
+                <img src="assets/icons/6408d31fe77edc25e03ef3ee_orbit-01.svg.svg" alt=""
+                     class="absolute w-[90px] h-[90px] opacity-15">
+                <img src="assets/icons/6408d31fe77edc25e03ef3ee_orbit-01.svg.svg" alt=""
+                     class="absolute w-[140px] h-[140px] opacity-10">
+                <img src="assets/icons/6408d31fe77edc25e03ef3ee_orbit-01.svg.svg" alt=""
+                     class="absolute w-[200px] h-[200px] opacity-8">
+              </div>
+              <!-- Chat bubble -->
+              <div class="relative rounded-2xl border border-white/[0.1] bg-[#111118]/80 px-4 py-3 mb-3 text-sm text-white/80">
+                How can I help?
+              </div>
+              <!-- Chat input -->
+              <div class="relative rounded-2xl border border-white/[0.1] bg-[#111118]/80 px-3 py-2.5 flex items-center gap-2">
+                <span class="text-white/40 text-xs flex-1">Default iOS button size?</span>
+                <button class="w-7 h-7 rounded-lg bg-white/[0.1] flex items-center justify-center relative overflow-hidden shrink-0">
+                  <img src="assets/images/div.send-button-stars-div.png" alt=""
+                       class="absolute inset-0 w-full h-full object-cover opacity-60 pointer-events-none">
+                  <svg class="relative w-3 h-3 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 19V5m0 0l-7 7m7-7l7 7"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section><!-- /genius -->
+
+
+    <!-- ============================================================
+         AUTOMATOR SECTION – 2-row bento grid
+         ============================================================ -->
+    <section id="automator" class="scroll-mt-20 py-24 px-4 sm:px-6">
+      <div class="max-w-[1200px] mx-auto">
+
+        <!-- Section intro: all items centered -->
+        <header class="mb-16 text-center">
+          <div class="flex justify-center mb-6">
+            <div class="relative w-[220px] h-[220px]">
+              <div class="absolute inset-0 rounded-full bg-white/[0.04] blur-2xl scale-150" aria-hidden="true"></div>
+              <img src="assets/icons/646528d00e2be7f623532060_automator-logo.svg.svg"
+                   alt="" class="relative w-full h-full object-contain">
+            </div>
+          </div>
+          <h2 class="text-[48px] md:text-[56px] font-bold leading-tight tracking-tight mb-3
+                     bg-hero-title bg-clip-text text-transparent">
+            Automator
+          </h2>
+          <p class="text-muted text-lg mb-6">Automate design tasks in Figma with a single click.</p>
+          <a href="https://automator.design" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/[0.1]
+                    bg-white/[0.05] text-white text-sm font-semibold hover:bg-white/10 transition no-underline">
+            <img src="assets/icons/64092260de5aef5a83e84d0d_automator-icon.svg.svg"
+                 alt="" class="w-5 h-5 object-contain">
+            automator.design
+          </a>
+        </header>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
+
+          <!-- Card 1 (col-span-2): Automate the busy work away -->
+          <article class="lg:col-span-2 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 overflow-hidden relative
+                          hover:bg-white/[0.05] hover:border-white/[0.14] transition-all duration-300 min-h-[400px] flex flex-col">
+            <div class="mb-auto">
+              <h3 class="font-semibold text-base mb-2">Automate the busy work away</h3>
+              <p class="text-dim text-sm leading-relaxed">
+                Automator turns hours of long, tedious busy work into a single click.
+              </p>
+            </div>
+            <!-- Automator plugin UI mockup -->
+            <div class="mt-6 flex-1 relative overflow-hidden rounded-xl border border-white/[0.06] bg-[#111118] flex">
+              <!-- Left sidebar: automation list -->
+              <div class="w-[45%] border-r border-white/[0.05] p-3 flex flex-col gap-1">
+                <div class="flex items-center gap-2 px-2 py-1.5 text-[10px] text-white/70">
+                  <div class="w-3 h-3 rounded-full bg-purple-400/40"></div> Generate Color Palette
+                </div>
+                <div class="flex items-center gap-2 px-2 py-1.5 text-[10px] text-white/40">
+                  <div class="w-3 h-3 rounded-full bg-blue-400/30"></div> Import Airtable
+                </div>
+                <div class="flex items-center gap-2 px-2 py-1.5 text-[10px] text-white/40">
+                  <div class="w-3 h-3 rounded-full bg-green-400/30"></div> Batch resize icons
+                </div>
+                <div class="flex items-center gap-2 px-2 py-1.5 text-[10px] text-white/40">
+                  <div class="w-3 h-3 rounded-full bg-orange-400/30"></div> Outline Spec
+                </div>
+              </div>
+              <!-- Right side: product cards scrolling -->
+              <div class="flex-1 p-2 flex gap-2 items-center overflow-hidden">
+                <div class="w-28 rounded-xl border border-white/[0.08] bg-white/[0.04] p-2 flex-shrink-0">
+                  <img src="assets/images/644fdb0cf3cc28c0ecf7d7cb_chair-p-500.png.png"
+                       alt="" class="w-full aspect-square rounded-lg object-cover mb-2 opacity-80">
+                  <div class="text-[9px] text-white/70 font-medium">Madrid chair</div>
+                  <div class="text-[9px] text-white/40">$449.00</div>
+                  <div class="mt-1 inline-block px-1.5 py-0.5 rounded-full bg-white/[0.08] text-[7px] text-white/50">Chairs</div>
+                </div>
+                <div class="w-28 rounded-xl border border-white/[0.06] bg-white/[0.02] p-2 flex-shrink-0 opacity-60">
+                  <div class="w-full aspect-square rounded-lg bg-white/[0.06] mb-2"></div>
+                  <div class="text-[9px] text-white/50 font-medium">Evee Diningve</div>
+                  <div class="text-[9px] text-white/30">$4,100.00</div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 (col-span-2): Build any automation -->
+          <article class="lg:col-span-2 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 overflow-hidden relative
+                          hover:bg-white/[0.05] hover:border-white/[0.14] transition-all duration-300 min-h-[400px] flex flex-col">
+            <div class="mb-auto">
+              <h3 class="font-semibold text-base mb-2">Build any automation</h3>
+              <p class="text-dim text-sm leading-relaxed">
+                Create custom automations from 100+ actions to run in any Figma file.
+              </p>
+            </div>
+            <!-- Automation blocks grid -->
+            <div class="mt-6 flex-1 relative overflow-hidden rounded-xl border border-white/[0.06] bg-[#111118] p-3">
+              <div class="grid grid-cols-4 gap-1">
+                <div class="h-12 rounded-lg border border-white/[0.06] bg-white/[0.04] flex items-center justify-center text-[9px] text-white/50"></div>
+                <div class="h-12 rounded-lg border border-white/[0.08] bg-white/[0.05] flex items-center justify-center text-[9px] text-white/70 px-1">Create frame</div>
+                <div class="h-12 rounded-lg border border-white/[0.08] bg-white/[0.05] flex items-center justify-center text-[9px] text-white/70 px-1">Add shadow</div>
+                <div class="h-12 rounded-lg border border-white/[0.08] bg-white/[0.05] flex items-center justify-center text-[9px] text-white/70 px-1">Boolean group</div>
+                <div class="h-12 rounded-lg border border-white/[0.06] bg-white/[0.04] flex items-center justify-center text-[9px] text-white/50"></div>
+                <div class="h-12 rounded-lg border border-white/[0.08] bg-white/[0.05] flex items-center justify-center text-[9px] text-white/70 px-1">Insert instance</div>
+                <div class="h-12 rounded-lg border border-white/[0.08] bg-white/[0.05] flex items-center justify-center text-[9px] text-white/70 px-1">Create line</div>
+                <div class="h-12 rounded-lg border border-white/[0.08] bg-white/[0.05] flex items-center justify-center text-[9px] text-white/70 px-1">Flatten</div>
+                <div class="h-12 rounded-lg border border-white/[0.06] bg-white/[0.04] flex items-center justify-center text-[9px] text-white/50"></div>
+                <div class="h-12 rounded-lg border border-white/[0.08] bg-white/[0.05] flex items-center justify-center text-[9px] text-white/70 px-1">Set position</div>
+                <div class="h-12 rounded-lg border border-white/[0.08] bg-white/[0.05] flex items-center justify-center text-[9px] text-white/70 px-1">Find</div>
+                <div class="h-12 rounded-lg border border-white/[0.08] bg-white/[0.05] flex items-center justify-center text-[9px] text-white/70 px-1">Set text case</div>
+                <div class="h-12 rounded-lg border border-white/[0.06] bg-white/[0.04] flex items-center justify-center text-[9px] text-white/50"></div>
+                <div class="h-12 rounded-lg border border-white/[0.08] bg-white/[0.05] flex items-center justify-center text-[9px] text-white/70 px-1">Reparent</div>
+                <div class="h-12 rounded-lg border border-white/[0.08] bg-white/[0.05] flex items-center justify-center text-[9px] text-white/70 px-1">Detach</div>
+                <div class="h-12 rounded-lg border border-white/[0.08] bg-white/[0.05] flex items-center justify-center text-[9px] text-white/70 px-1">Insert image</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 (col-span-2): Works with your tools -->
+          <article class="lg:col-span-2 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 overflow-hidden relative
+                          hover:bg-white/[0.05] hover:border-white/[0.14] transition-all duration-300 min-h-[400px] flex flex-col">
+            <div class="mb-auto">
+              <h3 class="font-semibold text-base mb-2">Works with your tools</h3>
+              <p class="text-dim text-sm leading-relaxed">
+                Connect Figma to Airtable, Notion, Google Sheets and more.
+              </p>
+            </div>
+            <div class="mt-6 flex-1 flex items-center justify-center gap-6">
+              <img src="assets/icons/645c279bcdf6feccce5088c0_netflix.svg.svg" alt="Netflix" class="w-14 h-14 object-contain opacity-80">
+              <img src="assets/icons/645c279a3ad5fb5cfe038e5d_meta.svg.svg" alt="Meta" class="w-14 h-14 object-contain opacity-80">
+              <img src="assets/icons/645c279bca7a7f61c9039aed_snapchat.svg.svg" alt="Snapchat" class="w-14 h-14 object-contain opacity-80">
+            </div>
+          </article>
+
+          <!-- Card 4 (col-span-2): Integrates with community -->
+          <article class="lg:col-span-2 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 overflow-hidden relative
+                          hover:bg-white/[0.05] hover:border-white/[0.14] transition-all duration-300 min-h-[400px] flex flex-col">
+            <div class="mb-auto">
+              <h3 class="font-semibold text-base mb-2">Explore community automations</h3>
+              <p class="text-dim text-sm leading-relaxed">
+                Browse, use, and share automations with the Diagram community.
+              </p>
+            </div>
+            <div class="mt-6 flex-1 relative overflow-hidden rounded-xl border border-white/[0.06] bg-[#111118] p-3">
+              <!-- Community tabs mockup -->
+              <div class="flex gap-4 text-xs mb-3 border-b border-white/[0.06] pb-2">
+                <span class="text-white/70 font-medium border-b-2 border-white/60 pb-2 -mb-2">You</span>
+                <span class="text-white/30">Team</span>
+                <span class="text-white/30">Community</span>
+              </div>
+              <div class="flex flex-col gap-2">
+                <div class="flex items-center gap-2 p-2 rounded-lg bg-white/[0.05]">
+                  <div class="w-4 h-4 rounded-full bg-purple-400/30"></div>
+                  <span class="text-white/60 text-[10px]">Generate Color Palette</span>
+                </div>
+                <div class="flex items-center gap-2 p-2 rounded-lg bg-white/[0.03]">
+                  <div class="w-4 h-4 rounded-full bg-blue-400/20"></div>
+                  <span class="text-white/40 text-[10px]">Import Airtable</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section><!-- /automator -->
+
+
+    <!-- ============================================================
+         UI-AI SECTION – 2-col feature cards
+         ============================================================ -->
+    <section id="ui-ai" class="scroll-mt-20 py-24 px-4 sm:px-6">
+      <div class="max-w-[1200px] mx-auto">
+
+        <!-- Section intro: all items centered -->
+        <header class="mb-16 text-center">
+          <p class="text-dim text-sm font-medium mb-4">All powered by</p>
+          <div class="flex justify-center mb-6">
+            <div class="relative w-[160px] h-[160px] rounded-2xl border border-white/[0.08]
+                        bg-white/[0.04] flex items-center justify-center overflow-hidden">
+              <div class="absolute inset-0 bg-white/[0.03] blur-xl scale-150" aria-hidden="true"></div>
+              <img src="assets/icons/64092260b1a89927bac783ed_ui-ai-icon.svg.svg"
+                   alt="UI-AI" class="relative w-24 h-24 object-contain">
+            </div>
+          </div>
+          <h2 class="text-[48px] md:text-[56px] font-bold leading-tight tracking-tight mb-3
+                     bg-hero-title bg-clip-text text-transparent">
+            UI-AI
+          </h2>
+          <p class="text-muted text-lg mb-4">Your AI companion for intelligent design, from concept to final pixel.</p>
+          <div class="flex flex-wrap items-center justify-center gap-2">
+            <img src="assets/icons/645d2e7f28f43ef1462c72c2_ui-ai-tag-3.svg.svg" alt="" class="h-7 object-contain">
+            <img src="assets/icons/645d2e7f89f63821c318b4e3_ui-ai-tag.svg.svg" alt="" class="h-7 object-contain">
+            <img src="assets/icons/645d2e7f47013fe6d7752732_ui-ai-tag-2.svg.svg" alt="" class="h-7 object-contain">
+            <img src="assets/icons/645d2e7ef73d9db4f5322969_ui-ai-tag-1.svg.svg" alt="" class="h-7 object-contain">
+          </div>
+        </header>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
+
+          <!-- Card 1 (col-span-2): Boundary-less UI for designers -->
+          <article class="lg:col-span-2 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 overflow-hidden relative
+                          hover:bg-white/[0.05] hover:border-white/[0.14] transition-all duration-300 min-h-[400px] flex flex-col">
+            <div class="mb-auto">
+              <h3 class="font-semibold text-base mb-2">Boundary-less UI for designers</h3>
+              <p class="text-dim text-sm leading-relaxed">
+                UI-AI removes constraints so you can design anything you can imagine.
+              </p>
+            </div>
+            <div class="mt-6 flex-1 relative overflow-hidden rounded-xl flex items-center justify-center gap-3">
+              <img src="assets/icons/6462b41224ce987d0e990fcb_ui-img-icon.svg.svg" alt="" class="w-20 h-20 object-contain">
+              <img src="assets/icons/div.ui-ai-toggle.svg" alt="" class="h-12 object-contain">
+            </div>
+          </article>
+
+          <!-- Card 2 (col-span-2): AI-powered design assistant -->
+          <article class="lg:col-span-2 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 overflow-hidden relative
+                          hover:bg-white/[0.05] hover:border-white/[0.14] transition-all duration-300 min-h-[400px] flex flex-col">
+            <div class="mb-auto">
+              <h3 class="font-semibold text-base mb-2">AI-powered design assistant</h3>
+              <p class="text-dim text-sm leading-relaxed">
+                Get intelligent design recommendations powered by UI-AI's custom model.
+              </p>
+            </div>
+            <div class="mt-6 flex-1 relative overflow-hidden rounded-xl">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <img src="assets/images/div.custom-model-grid-absolute.png" alt=""
+                     class="w-full h-full object-cover opacity-40 pointer-events-none">
+              </div>
+              <!-- Sample font previews -->
+              <div class="absolute inset-0 flex items-center justify-center gap-3 p-4">
+                <img src="assets/images/6466d5d2cc93f056523a6797_Aa-1-p-500.png.png" alt="" class="h-20 object-contain">
+                <img src="assets/images/6466d5d2cc93f056523a67bd_Aa-2-p-500.png.png" alt="" class="h-20 object-contain">
+                <img src="assets/images/6466e1286cfd39b21cb7ada1_NY-p-500.png.png" alt="" class="h-16 object-contain">
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 (col-span-2): Real emoji-powered assets -->
+          <article class="lg:col-span-2 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 overflow-hidden relative
+                          hover:bg-white/[0.05] hover:border-white/[0.14] transition-all duration-300 min-h-[400px] flex flex-col">
+            <div class="mb-auto">
+              <h3 class="font-semibold text-base mb-2">Real-world inspired assets</h3>
+              <p class="text-dim text-sm leading-relaxed">
+                Generate assets grounded in real-world visuals and brand contexts.
+              </p>
+            </div>
+            <div class="mt-6 flex-1 flex items-center justify-center gap-4">
+              <img src="assets/images/645d6a98d8373cf9c1ce1a6f_emoji-7.png.png" alt="" class="w-16 h-16 object-contain">
+              <img src="assets/images/645d6a98e0df9d163f108c93_emoji-1.png.png" alt="" class="w-16 h-16 object-contain">
+              <img src="assets/images/645d6a99b691b4e4a196cee2_emoji-4.png.png" alt="" class="w-16 h-16 object-contain">
+              <img src="assets/images/645d7add8db87a42878a27fb_emoji-1.png.png" alt="" class="w-16 h-16 object-contain">
+            </div>
+          </article>
+
+          <!-- Card 4 (col-span-2): Designed for any workflow -->
+          <article class="lg:col-span-2 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 overflow-hidden relative
+                          hover:bg-white/[0.05] hover:border-white/[0.14] transition-all duration-300 min-h-[400px] flex flex-col">
+            <div class="mb-auto">
+              <h3 class="font-semibold text-base mb-2">Designed for any workflow</h3>
+              <p class="text-dim text-sm leading-relaxed">
+                Works seamlessly with Magician, Genius, and Automator.
+              </p>
+            </div>
+            <div class="mt-6 flex-1 flex items-center justify-center gap-5">
+              <div class="flex flex-col items-center gap-2">
+                <img src="assets/icons/64092187ef5f2a2bda3abc21_magician-icon.svg.svg" alt="" class="w-10 h-10 object-contain">
+                <span class="text-dim text-xs">Magician</span>
+              </div>
+              <div class="w-px h-8 bg-white/10"></div>
+              <div class="flex flex-col items-center gap-2">
+                <img src="assets/icons/641cc2f93287d140e901334d_genius-icon.svg.svg" alt="" class="w-10 h-10 object-contain">
+                <span class="text-dim text-xs">Genius</span>
+              </div>
+              <div class="w-px h-8 bg-white/10"></div>
+              <div class="flex flex-col items-center gap-2">
+                <img src="assets/icons/64092260de5aef5a83e84d0d_automator-icon.svg.svg" alt="" class="w-10 h-10 object-contain">
+                <span class="text-dim text-xs">Automator</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section><!-- /ui-ai -->
+
+  </main>
+
+
+  <!-- ============================================================
+       FOOTER (Figma: div.footer)
+       ============================================================ -->
+  <footer class="border-t border-white/[0.06] px-4 sm:px-6 py-12">
+    <div class="max-w-[1200px] mx-auto">
+
+      <!-- Footer flex: logo col + Products + Company + Legal -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12">
+        <!-- Col 1: logo + tagline + Join the future -->
+        <div class="col-span-2 md:col-span-1">
+          <a href="#" class="inline-block mb-4">
+            <img src="assets/icons/6408c50680c7dae0a89901a1_logo.svg.svg" class="h-6 w-auto object-contain" alt="Diagram">
+          </a>
+          <p class="text-dim text-sm mb-6">Design tools from the future.</p>
+          <a href="#" class="inline-block px-4 py-2 rounded-lg border border-white/[0.1] bg-white/[0.04] text-sm font-medium text-white hover:bg-white/10 transition no-underline">Join the future</a>
+      </div>
+        <!-- Products -->
+        <div>
+          <strong class="block text-sm font-semibold text-white mb-4">Products</strong>
+          <a href="#genius"    class="block text-dim text-sm no-underline hover:text-white py-2 transition">Genius</a>
+          <a href="#magician"  class="block text-dim text-sm no-underline hover:text-white py-2 transition">Magician</a>
+          <a href="#automator" class="block text-dim text-sm no-underline hover:text-white py-2 transition">Automator</a>
+          <a href="#ui-ai"     class="block text-dim text-sm no-underline hover:text-white py-2 transition">UI-AI</a>
+        </div>
+        <!-- Company -->
+        <div>
+          <strong class="block text-sm font-semibold text-white mb-4">Company</strong>
+          <a href="#" class="block text-dim text-sm no-underline hover:text-white py-2 transition">About</a>
+          <a href="#" class="block text-dim text-sm no-underline hover:text-white py-2 transition">Careers</a>
+          <a href="#" class="block text-dim text-sm no-underline hover:text-white py-2 transition">Blog</a>
+          <a href="#" class="block text-dim text-sm no-underline hover:text-white py-2 transition">Contact</a>
+      </div>
+        <!-- Legal -->
+        <div>
+          <strong class="block text-sm font-semibold text-white mb-4">Legal</strong>
+          <a href="#" class="block text-dim text-sm no-underline hover:text-white py-2 transition">Privacy</a>
+          <a href="#" class="block text-dim text-sm no-underline hover:text-white py-2 transition">Terms</a>
+    </div>
+      </div>
+
+      <!-- Footer bottom: copyright + socials -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-white/[0.06]">
+        <p class="text-dim text-sm">©2023 Diagram Technologies, Inc.</p>
+        <div class="flex items-center gap-2">
+          <a href="#" class="w-8 h-8 rounded-lg bg-white/[0.05] flex items-center justify-center hover:bg-white/[0.1] transition" aria-label="Twitter">
+            <img src="assets/icons/646d1f00d9d8faf3f080fe7f_twitter-icon.svg.svg" class="w-5 h-5 object-contain" alt="">
+          </a>
+          <a href="#" class="w-8 h-8 rounded-lg bg-white/[0.05] flex items-center justify-center hover:bg-white/[0.1] transition" aria-label="Read.cv">
+            <img src="assets/icons/646d1f007bccf9b292c3ba17_readcv-icon.svg.svg" class="w-5 h-5 object-contain" alt="">
+          </a>
+          <a href="#" class="w-8 h-8 rounded-lg bg-white/[0.05] flex items-center justify-center hover:bg-white/[0.1] transition" aria-label="Discord">
+            <img src="assets/icons/646d1f00c3223475b708e959_discord-icon.svg.svg" class="w-5 h-5 object-contain" alt="">
+          </a>
+          <a href="#" class="w-8 h-8 rounded-lg bg-white/[0.05] flex items-center justify-center hover:bg-white/[0.1] transition" aria-label="Instagram">
+            <img src="assets/icons/646d1f0026c4941c3a789671_instagram-icon.svg.svg" class="w-5 h-5 object-contain" alt="">
+          </a>
+      </div>
+      </div>
+
+      </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
