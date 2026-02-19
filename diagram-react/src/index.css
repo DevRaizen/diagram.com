@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --color-bg: #0a0a0f;
+  --color-card-bg: rgba(255, 255, 255, 0.03);
+  --color-card-border: rgba(255, 255, 255, 0.08);
+  --color-muted: #bdbdc0;
+  --color-dim: #888893;
+  --color-accent: #7c4dff;
+  --background-image-page-glow: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(124, 77, 255, 0.18), transparent),
+    radial-gradient(circle at 20% 85%, rgba(100, 60, 200, 0.07), transparent);
+  --background-image-hero-title: linear-gradient(136deg, #fff 65%, rgba(255, 255, 255, 0.43) 100%);
+  --background-image-cta-pill: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.04) 100%);
+  --shadow-card-glow: 0 0 80px 0 rgba(124, 77, 255, 0.12);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+}
